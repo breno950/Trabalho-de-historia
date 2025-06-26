@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  background: linear-gradient(to right top, #6a11cb 0%, #2575fc 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.home-icon {
+  font-size: 30px;
+  text-decoration: none;
+  color: #555;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.home-icon:hover {
+  transform: scale(1.1);
+  color: #007bff;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  margin: 20px;
+}
+
+.main-content h1 {
+  margin: 0 0 40px 10px;
+  font-size: 38px;
+  color: #4a007a;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cards {
+  display: grid;
+  /* Definir 2 colunas de largura igual, com um gap */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 0 10px;
+  /* Centralizar o grid no main-content */
+  justify-content: center; /* Para centralizar os itens de grid se o contêiner for maior */
+  max-width: 700px; /* Definir uma largura máxima para o grid para ele não esticar muito */
+  margin: 0 auto; /* Centralizar o contêiner .cards dentro do main-content */
+}
+
+.card {
+  text-align: center;
+  border-radius: 18px;
+  padding: 35px 25px;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  background-color: #f8f8f8;
+}
+
+/* Estilo para o quinto cartão (índice 5) */
+.cards .card:nth-child(5) {
+  grid-column: 1 / -1; /* Faz o cartão ocupar todas as colunas disponíveis */
+  max-width: 300px; /* Limita a largura do cartão central para não ficar muito grande */
+  justify-self: center; /* Centraliza o item dentro da célula do grid */
+}
+
+.icon {
+  font-size: 52px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  color: #555;
+}
+
+/* Estilo para o ícone SVG do livro */
+.book-icon {
+    width: 60px;
+    height: 60px;
+    stroke: #8e2de2;
+    stroke-width: 1.5;
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.card:hover .book-icon {
+    stroke: #4a007a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 15px 0;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+
+  .sidebar .home-icon {
+    margin: 0 auto;
+  }
+
+  .main-content {
+    margin: 0 20px 20px 20px;
+    padding: 30px;
+  }
+
+  .main-content h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cards {
+    /* Em telas menores, volta para uma coluna para melhor visualização */
+    grid-template-columns: 1fr;
+    max-width: none; /* Remove a largura máxima para que ocupe o espaço disponível */
+  }
+
+  /* Desativar o estilo do 5º cartão em telas pequenas */
+  .cards .card:nth-child(5) {
+    grid-column: auto; /* Volta ao comportamento padrão de coluna */
+    max-width: none; /* Remove a largura máxima */
+    justify-self: stretch; /* Ocupa a largura total disponível */
+  }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .main-content h1 {
+        font-size: 26px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .icon {
+        font-size: 45px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+}
